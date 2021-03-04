@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1080328909616",
+    "project_id": "todoflutterando",
+    "storage_bucket": "todoflutterando.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080328909616:android:7816c33c50d6f230cb4ef5",
+        "android_client_info": {
+          "package_name": "com.example.fluterandotodoslidy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080328909616-5lls8792na0kb12dl89tha1vk9muegna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fluterandotodoslidy",
+            "certificate_hash": "88651ade902b94d4ee332e1d3b4514d1c7fefbcc"
+          }
+        },
+        {
+          "client_id": "1080328909616-d96uvn7f1tp0k5hmbae7i9ihf64qa0gs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjd1PCqibzAiYIpaUM_9ya_-TLhPprT7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080328909616-d96uvn7f1tp0k5hmbae7i9ihf64qa0gs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
