@@ -20,11 +20,12 @@ class AppModule extends MainModule {
       ];
 
   @override
-  Widget get bootstrap => FutureBuilder(
-      future: Firebase.initializeApp(),
-      builder: (context, snapshot) {
+  Widget get bootstrap => AppWidget();
+  /*FutureBuilder(
+           future: Firebase.initializeApp(),
+          builder: (context, snapshot) {
         if (snapshot.hasData) return AppWidget();
-        return Container(
+        return Container( 
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           color: Colors.green,
@@ -32,7 +33,7 @@ class AppModule extends MainModule {
             child: CircularProgressIndicator(),
           ),
         );
-      });
+      });*/
 
   static Inject get to => Inject<AppModule>.of();
 }

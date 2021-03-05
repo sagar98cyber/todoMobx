@@ -4,15 +4,19 @@ class TodoModel {
   String title;
   bool check;
   DocumentReference reference;
-  TodoModel({this.title, this.check, this.reference});
+  TodoModel({this.title = '', this.check = false, this.reference});
 
   factory TodoModel.fromDocs(DocumentSnapshot doc) {
     return TodoModel(
         title: doc['title'], check: doc['check'], reference: doc.reference);
   }
 
-  save() {
+  Future save() async {
     if (reference == null) {
+      reference = await FirebaseFirestore.instance.collection('todo').add({
+        'title': title,
+        'check': check,
+      });
     } else {
       reference.update({
         'title': title,

@@ -23,7 +23,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         ),
         floatingActionButton: FloatingActionButton(
           autofocus: true,
-          onPressed: () {},
+          child: Icon(Icons.add),
+          onPressed: _showDailog,
         ),
         body: Observer(
           builder: (_) {
@@ -43,16 +44,53 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                       child: CircularProgressIndicator(),
                     );
                   }
-                  return CheckboxListTile(
+                  return ListTile(
                     title: Text(model.title),
-                    value: model.check,
-                    onChanged: (val) {
-                      model.check = val;
-                      model.save();
+                    //value: model.check,
+                    trailing: Checkbox(
+                      value: model.check,
+                      onChanged: (check) {
+                        model.check = !model.check;
+                        model.save();
+                      },
+                    ),
+                    onTap: () {
+                      _showDailog(model);
                     },
                   );
                 });
           },
         ));
+  }
+
+  _showDailog([TodoModel model]) {
+    model ??= TodoModel();
+    showDialog(
+        context: context,
+        builder: (_) {
+          return AlertDialog(
+              title: Text('ToDo Details'),
+              actions: [
+                FlatButton(
+                    onPressed: () async {
+                      Modular.to.pop();
+                    },
+                    child: Icon(Icons.cancel)),
+                FlatButton(
+                    onPressed: () async {
+                      await model.save();
+                      Modular.to.pop();
+                    },
+                    child: Icon(Icons.check)),
+              ],
+              content: TextField(
+                onChanged: (val) => model.title = val,
+                decoration: InputDecoration(
+                    labelText: 'aaaaa',
+                    border: OutlineInputBorder(
+                        //borderRadius: BorderRadius.all((Radius.circular(15)))
+                        )),
+              ));
+        });
   }
 }
