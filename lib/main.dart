@@ -4,7 +4,10 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(ModularApp(module: AppModule()));
+  await Firebase.initializeApp();
+  runApp(
+    ModularApp(module: AppModule()),
+  );
 }

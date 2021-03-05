@@ -5,10 +5,10 @@ import 'todo_repository_interface.dart';
 
 class TodoRepository implements ITodoRepository {
   FirebaseFirestore firestore;
-  TodoRepository(FirebaseFirestore instance);
+  TodoRepository(this.firestore);
   @override
   Stream<List<TodoModel>> getTodos() {
-    return firestore.collection('toDo').snapshots().map((query) {
+    return firestore.collection('todo').snapshots().map((query) {
       return query.docs.map((doc) {
         return TodoModel.fromDocs(doc);
       }).toList();
